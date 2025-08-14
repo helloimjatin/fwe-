@@ -1,0 +1,46 @@
+# --- Scheduling (informational) ---
+schedule:
+  days: [Mon, Thu]
+  time_ist: "09:00"   # informational only; actual schedule is in .github/workflows/twice_weekly.yml
+
+# --- Feeds & sources ---
+feeds:
+  - name: arXiv cs.AI
+    url: https://export.arxiv.org/rss/cs.AI
+  - name: arXiv cs.LG
+    url: https://export.arxiv.org/rss/cs.LG
+  - name: Papers with Code
+    url: https://paperswithcode.com/rss
+  - name: OpenAI Blog
+    url: https://openai.com/blog/rss.xml
+  - name: Google AI Blog
+    url: https://blog.research.google/atom.xml
+  - name: DeepMind
+    url: https://deepmind.google/discover/blog/rss/
+  - name: Meta AI
+    url: https://ai.facebook.com/blog/rss/
+  - name: Hugging Face Blog
+    url: https://huggingface.co/blog/feed.xml
+  - name: Anthropic
+    url: https://www.anthropic.com/news.xml
+  - name: Stability AI
+    url: https://stability.ai/blog/rss.xml
+
+# --- Filtering/ranking ---
+keywords:
+  must_any: ["AI", "machine learning", "LLM", "foundation model", "agent", "tool", "open source"]
+  boost: ["release", "open-source", "paper", "benchmark", "tip", "tutorial", "dataset", "mit", "apache", "arxiv"]
+  drop_if_any: ["job opening", "hiring", "sponsored"]
+max_items_per_source: 5
+max_total_items: 25
+
+# --- Summaries ---
+summary:
+  sentences: 2  # TextRank sentence count per item
+
+# --- Post composition ---
+post:
+  bullets: 5
+  include_emojis: true
+  cta: "Want the full list? Comment 'More' and I’ll share all links."
+  hashtags: ["#AI", "#MachineLearning", "#LLM", "#OpenSource", "#AITools"]
